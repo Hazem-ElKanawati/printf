@@ -10,5 +10,7 @@ int _printf(const char *format, ...);
 void _puts(char *str);
 int _strlen(const char *s);
 int _putchar(char c);
+char *handle_int(int x);
+void rev_string(char *s);
 
 #endif
