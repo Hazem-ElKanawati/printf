@@ -10,6 +10,9 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0, loopcount, i;
+	char *str;
+	int n1;
+	char *d;
 
 	if (format == NULL)
 		return (-1);
@@ -27,13 +30,24 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				case 's':
-					_puts(va_arg(args, char*));
-					count++;
+					str = va_arg(args, char*);
+					_puts(str);
+					count += _strlen(str);
 					i++;
 					break;
 				case '%':
 					_putchar('%');
 					count++;
+					i++;
+					break;
+				case 'd':
+				case 'i':
+					d = handle_int(va_arg(args, int));
+					if (d == NULL)
+						break;
+					count += _strlen(str);
+					_puts(d);
+					free(d);
 					i++;
 					break;
 			}
