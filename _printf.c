@@ -11,6 +11,8 @@ int _printf(const char *format, ...)
 	va_list args;
 	int count = 0, loopcount, i;
 
+	if (format == NULL)
+		return (-1);
 	loopcount = _strlen(format);
 	va_start(args, format);
 	for (i = 0; i < loopcount; i++)
