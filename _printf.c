@@ -41,9 +41,13 @@ int _printf(const char *format, ...)
 				case 'd':
 				case 'i':
 					d = handle_int(va_arg(args, int));
-					if (d == NULL)
-						break;
 					count += _strlen(d);
+					_puts(d);
+					free(d);
+					i++;
+					break;
+				case 'b':
+					d = int_to_binary(va_arg(args, unsigned int));
 					_puts(d);
 					free(d);
 					i++;

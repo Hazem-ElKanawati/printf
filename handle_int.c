@@ -10,8 +10,15 @@ char *handle_int(int x)
 {
 	int i = 0;
 	char *p;
+	int temp, digits = 0;
 
-	p = malloc(sizeof(char) * 20);
+	temp = x;
+	while (temp)
+	{
+		digits++;
+		temp /= 10;
+	}
+	p = malloc(sizeof(char) * digits);
 	if (p == NULL)
 		return (NULL);
 	while (x)
