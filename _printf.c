@@ -33,6 +33,13 @@ int _printf(const char *format, ...)
 					count += _strlen(d);
 					i++;
 					break;
+				case 'r':
+					d = va_arg(args, char*);
+					rev_string(d);
+					_puts(d);
+					count += _strlen(d);
+					i++;
+					break;
 				case '%':
 					_putchar('%');
 					count++;
